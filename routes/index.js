@@ -27,7 +27,7 @@ exports.mobileConfig = function(req, res){
             "comp_create": compUrl,
             "comp_delete": compUrl + "%@",
             "visit_record": visitUrl + "record",
-            "visit_delete": visitUrl + "%@"
+            "visit_delete": visitUrl + "%@",
             "latest_visits": visitUrl + "latestByOrganization/%@"
 
         },
