@@ -4,7 +4,9 @@
  */
 
 var express = require('express');
-var routes = require('./routes');
+var routes = require('./routes/index.js');
+var memberRoutes = require('./routes/members.js');
+var districtRoutes = require('./routes/districts.js');
 //var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
@@ -31,6 +33,11 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/config', routes.mobileConfig);
+app.get('/htvt/services/v1/:unitNum/districts/:auxId', districtRoutes.districtList);
+app.get('/htvt/services/v1/:unitNum/members/', memberRoutes.memberList);
+app.post('/htvt/services/v1/:unitNum/visits/record', districtRoutes.recordVisit);
+//app.get('/htvt/services/v1/:unitNum/visits/latestByOrganization/:auxId', districtRoutes.visitsByOrg);
+
 
 http.createServer(app).listen(app.get('port'), app.get('ip'), function(){
   console.log('Express server listening on port ' + app.get('port'));
