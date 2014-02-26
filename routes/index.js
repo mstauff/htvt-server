@@ -31,7 +31,9 @@ exports.mobileConfig = function(req, res){
             "latest_visits": visitUrl + "latestByOrganization/%@/"
 
         },
-        cacheMemberData : "true"
+        params : {
+            cacheMemberData : "true"
+        }
     }
   res.send(config);
 };
