@@ -6,7 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 exports.districtList = function (req, res) {
-    res.send(DISTRICT1_JSON);
+    var distList = [DISTRICT1_JSON, DISTRICT2_JSON];
+    res.send(distList);
 }
 
 exports.recordVisit = function (req, res) {
@@ -258,6 +259,13 @@ DISTRICT1_JSON = {
     ],
     "districtLeaderId": 111,
     "name": "district 1"
+};
+DISTRICT2_JSON = {
+    "id": 2,
+    "auxiliaryId": 22,
+    "companionships": [],
+    "districtLeaderId": 211,
+    "name": "district 2"
 };
 
 var currMonth = new Date();
