@@ -280,15 +280,18 @@ for( var i = numMonthVisits - 1; i >= 0; i-- ) {
 
 for( var compIdx = 0; compIdx < DISTRICT1_JSON.companionships.length; compIdx++ ) {
     var comp = DISTRICT1_JSON.companionships[compIdx];
+    var visited = true;
     if (comp.assignments != null ) {
         for (var assignIdx = 0; assignIdx < comp.assignments.length; assignIdx++) {
             var assignment = comp.assignments[assignIdx];
             if (assignment.visits != null) {
 
+                visited = !visited;
                 for (var i = 0; i < assignment.visits.length; i++) {
                     var visit = assignment.visits[i];
-                    visit['month'] = visitDates[i].month;
-                    visit['year'] = visitDates[i].year;
+                    visit.month= visitDates[i].month;
+                    visit.year = visitDates[i].year;
+                    visit.visited = visited;
                 }
             }
         }
