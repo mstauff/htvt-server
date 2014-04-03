@@ -292,6 +292,7 @@ for( var compIdx = 0; compIdx < DISTRICT1_JSON.companionships.length; compIdx++ 
                     visit.month= visitDates[i].month;
                     visit.year = visitDates[i].year;
                     visit.visited = visited;
+                    visit.id = (assignment.id *10000) + (assignIdx * 100) + i;
                 }
                 if( visited == true ) {
                     visited = false;
